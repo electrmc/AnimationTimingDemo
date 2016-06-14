@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var displayLink: CADisplayLink?
+    
     @IBOutlet weak var animatorView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,28 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    // MARK: DisplayLink
+    @IBAction func startDisplayLink(){
+        if displayLink == nil {
+            displayLink = CADisplayLink(target: self, selector: "handleDisplayLink:")
+            displayLink?.frameInterval = 5 // 即每刷新5帧调用一次
+            displayLink?.addToRunLoop(NSRunLoop.currentRunLoop(), forMode:NSRunLoopCommonModes)
+        }
+        displayLink?.paused = false
+    }
+    
+    @IBAction func stopDisplayLink(){
+        displayLink?.paused = true
+        displayLink?.removeFromRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        displayLink?.invalidate()
+        displayLink = nil
+    }
+    
+    func handleDisplayLink(displayLink: CADisplayLink) {
+        print("displaylink last time : \(displayLink.timestamp)")
+    }
+    
     @IBAction func startAnimation(sender: AnyObject) {
         let animation = CABasicAnimation(keyPath: "position")
         animation.delegate = self

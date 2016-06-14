@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyj-Rq-Bmr">
-                    <rect key="frame" x="27" y="509" width="32" height="30"/>
+                    <rect key="frame" x="26" y="443" width="32" height="30"/>
                     <state key="normal" title="start"/>
                     <connections>
                         <action selector="startAnimation:" destination="-1" eventType="touchUpInside" id="ExX-ii-DNP"/>
@@ -28,10 +28,24 @@
                     <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF0-op-yJW">
-                    <rect key="frame" x="249" y="509" width="30" height="30"/>
+                    <rect key="frame" x="218" y="443" width="30" height="30"/>
                     <state key="normal" title="end"/>
                     <connections>
                         <action selector="endAnimation:" destination="-1" eventType="touchUpInside" id="Owb-vZ-FOs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eE8-R3-Y3L">
+                    <rect key="frame" x="20" y="512" width="110" height="30"/>
+                    <state key="normal" title="startDisplayLink"/>
+                    <connections>
+                        <action selector="startDisplayLink" destination="-1" eventType="touchUpInside" id="zgB-Uc-SAT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFk-Yy-7FZ">
+                    <rect key="frame" x="179" y="512" width="109" height="30"/>
+                    <state key="normal" title="stopDisplayLink"/>
+                    <connections>
+                        <action selector="stopDisplayLink" destination="-1" eventType="touchUpInside" id="ZJO-vt-R4y"/>
                     </connections>
                 </button>
             </subviews>
