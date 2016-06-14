@@ -9,19 +9,17 @@
 /* Begin PBXBuildFile section */
 		4CC0F8201D0E32E900E482A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0F81F1D0E32E900E482A8 /* AppDelegate.swift */; };
 		4CC0F8221D0E32E900E482A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0F8211D0E32E900E482A8 /* ViewController.swift */; };
-		4CC0F8251D0E32E900E482A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0F8231D0E32E900E482A8 /* Main.storyboard */; };
 		4CC0F8271D0E32E900E482A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0F8261D0E32E900E482A8 /* Assets.xcassets */; };
-		4CC0F82A1D0E32E900E482A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0F8281D0E32E900E482A8 /* LaunchScreen.storyboard */; };
+		4CC0F8321D0E33B300E482A8 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0F8311D0E33B300E482A8 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4CC0F81C1D0E32E900E482A8 /* AnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0F81F1D0E32E900E482A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CC0F8211D0E32E900E482A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4CC0F8241D0E32E900E482A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CC0F8261D0E32E900E482A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4CC0F8291D0E32E900E482A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CC0F82B1D0E32E900E482A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC0F8311D0E33B300E482A8 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +54,8 @@
 			children = (
 				4CC0F81F1D0E32E900E482A8 /* AppDelegate.swift */,
 				4CC0F8211D0E32E900E482A8 /* ViewController.swift */,
-				4CC0F8231D0E32E900E482A8 /* Main.storyboard */,
+				4CC0F8311D0E33B300E482A8 /* ViewController.xib */,
 				4CC0F8261D0E32E900E482A8 /* Assets.xcassets */,
-				4CC0F8281D0E32E900E482A8 /* LaunchScreen.storyboard */,
 				4CC0F82B1D0E32E900E482A8 /* Info.plist */,
 			);
 			path = AnimationDemo;
@@ -123,9 +120,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CC0F82A1D0E32E900E482A8 /* LaunchScreen.storyboard in Resources */,
+				4CC0F8321D0E33B300E482A8 /* ViewController.xib in Resources */,
 				4CC0F8271D0E32E900E482A8 /* Assets.xcassets in Resources */,
-				4CC0F8251D0E32E900E482A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,25 +138,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		4CC0F8231D0E32E900E482A8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CC0F8241D0E32E900E482A8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4CC0F8281D0E32E900E482A8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CC0F8291D0E32E900E482A8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4CC0F82C1D0E32E900E482A8 /* Debug */ = {
@@ -250,6 +227,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = AnimationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MiaoChao.AnimationDemo;
@@ -261,6 +239,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = AnimationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MiaoChao.AnimationDemo;
