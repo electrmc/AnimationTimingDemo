@@ -17,8 +17,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyj-Rq-Bmr">
-                    <rect key="frame" x="26" y="443" width="32" height="30"/>
-                    <state key="normal" title="start"/>
+                    <rect key="frame" x="15" y="400" width="138" height="30"/>
+                    <state key="normal" title="startBasicAnimation"/>
                     <connections>
                         <action selector="startAnimation:" destination="-1" eventType="touchUpInside" id="ExX-ii-DNP"/>
                     </connections>
@@ -28,24 +28,45 @@
                     <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF0-op-yJW">
-                    <rect key="frame" x="218" y="443" width="30" height="30"/>
-                    <state key="normal" title="end"/>
+                    <rect key="frame" x="171" y="400" width="132" height="30"/>
+                    <state key="normal" title="endBasicAnimation"/>
                     <connections>
                         <action selector="endAnimation:" destination="-1" eventType="touchUpInside" id="Owb-vZ-FOs"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eE8-R3-Y3L">
-                    <rect key="frame" x="20" y="512" width="110" height="30"/>
+                    <rect key="frame" x="15" y="433" width="110" height="30"/>
                     <state key="normal" title="startDisplayLink"/>
                     <connections>
                         <action selector="startDisplayLink" destination="-1" eventType="touchUpInside" id="zgB-Uc-SAT"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFk-Yy-7FZ">
-                    <rect key="frame" x="179" y="512" width="109" height="30"/>
+                    <rect key="frame" x="171" y="433" width="109" height="30"/>
                     <state key="normal" title="stopDisplayLink"/>
                     <connections>
                         <action selector="stopDisplayLink" destination="-1" eventType="touchUpInside" id="ZJO-vt-R4y"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQI-2p-k77">
+                    <rect key="frame" x="15" y="471" width="177" height="30"/>
+                    <state key="normal" title="pauseLayerTreeAnimation"/>
+                    <connections>
+                        <action selector="pauseLayerAnimation:" destination="-1" eventType="touchUpInside" id="LCp-NI-E2c"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eA-rO-SZX">
+                    <rect key="frame" x="15" y="509" width="187" height="30"/>
+                    <state key="normal" title="resumeLayerTreeAnimation"/>
+                    <connections>
+                        <action selector="resumeLayerAnimation:" destination="-1" eventType="touchUpInside" id="GbE-Jg-brK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhK-gm-ROe">
+                    <rect key="frame" x="238" y="471" width="39" height="30"/>
+                    <state key="normal" title="Reset"/>
+                    <connections>
+                        <action selector="resetAnimationView:" destination="-1" eventType="touchUpInside" id="H5O-CP-npy"/>
                     </connections>
                 </button>
             </subviews>

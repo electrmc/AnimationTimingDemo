@@ -43,14 +43,16 @@ class ViewController: UIViewController {
         print("displaylink last time : \(displayLink.timestamp)")
     }
     
+    
+    //MARK: CABasicAnimation
     @IBAction func startAnimation(sender: AnyObject) {
         let animation = CABasicAnimation(keyPath: "position")
         animation.delegate = self
         let fromPoint = CGPoint(x: self.animatorView.center.x, y: self.animatorView.center.y)
-        let toPoint = CGPoint(x: 100.0, y: 300.0)
+        let toPoint = CGPoint(x: 300.0, y: 300.0)
         animation.fromValue = NSValue(CGPoint: fromPoint)
         animation.toValue = NSValue(CGPoint: toPoint)
-        animation.duration = 0.75
+        animation.duration = 5.0
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         self.animatorView.layer.addAnimation(animation, forKey: "KVCkey")
 //        self.animatorView.center = toPoint
@@ -81,6 +83,34 @@ class ViewController: UIViewController {
         
         print("end view : \(self.animatorView)")
         print("end view.layer : \(self.animatorView.layer.frame)")
+    }
+    
+    // MARK: 使用CAMediaTiming暂停动画
+    @IBAction func pauseLayerAnimation(sender: AnyObject) {
+        self.pauseLayer(self.animatorView.layer)
+    }
+
+    @IBAction func resumeLayerAnimation(sender: AnyObject) {
+        self.resumeLayer(self.animatorView.layer)
+    }
+    
+    func pauseLayer(layer :CALayer){
+        let pauseTime: CFTimeInterval = layer .convertTime(CACurrentMediaTime(), fromLayer: nil)
+        layer.speed = 0.0
+        layer.timeOffset = pauseTime
+    }
+    //MARK: 这个调用多次会出现什么问题
+    func resumeLayer(layer :CALayer){
+        let pauseTime = layer.timeOffset
+        layer.speed = 1.0
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
+        let timeSincePause: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pauseTime
+        layer.beginTime = timeSincePause
+    }
+    
+    @IBAction func resetAnimationView(sender: AnyObject) {
+        self.animatorView.center = CGPointMake(100, 100)
     }
 }
 
