@@ -53,6 +53,9 @@ class ViewController: UIViewController {
         animation.fromValue = NSValue(CGPoint: fromPoint)
         animation.toValue = NSValue(CGPoint: toPoint)
         animation.duration = 5.0
+//        animation.speed = 2.0 // 相对速度为2
+        animation.timeOffset = 2.0 //从2秒开始运动，然后再完成前2秒的动画，且与速度无关
+        animation.beginTime = CACurrentMediaTime() + 0.5 // 延时0.5秒开始
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         self.animatorView.layer.addAnimation(animation, forKey: "KVCkey")
 //        self.animatorView.center = toPoint
@@ -110,7 +113,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetAnimationView(sender: AnyObject) {
-        self.animatorView.center = CGPointMake(100, 100)
+        self.animatorView.center = CGPointMake(10, 20)
     }
 }
 
