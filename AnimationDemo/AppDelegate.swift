@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.lightGrayColor()
         
-        let vc = ViewController()
-        self.window?.rootViewController = vc       
+//        let vc = ViewController()
+        let secondVC = SecondViewController()
+        self.window?.rootViewController = secondVC
         
         self.window?.makeKeyAndVisible()
         return true
