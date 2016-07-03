@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.lightGrayColor()
         
 //        let vc = ViewController()
-        let secondVC = SecondViewController()
-        self.window?.rootViewController = secondVC
+        let vc = SecondViewController()
+        self.window?.rootViewController = vc
         
         self.window?.makeKeyAndVisible()
         return true

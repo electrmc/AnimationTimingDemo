@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     // MARK: DisplayLink
     @IBAction func startDisplayLink(){
         if displayLink == nil {
-            displayLink = CADisplayLink(target: self, selector: "handleDisplayLink:")
+            displayLink = CADisplayLink(target: self, selector: #selector(ViewController.handleDisplayLink(_:)))
             displayLink?.frameInterval = 5 // 即每刷新5帧调用一次
             displayLink?.addToRunLoop(NSRunLoop.currentRunLoop(), forMode:NSRunLoopCommonModes)
         }

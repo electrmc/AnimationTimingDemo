@@ -15,20 +15,35 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Omp-Vq-TMe">
+                    <rect key="frame" x="24" y="536" width="234" height="31"/>
+                    <connections>
+                        <action selector="sliderForAnimation:" destination="-1" eventType="valueChanged" id="bYM-6d-XvP"/>
+                    </connections>
+                </slider>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-F0-Vo8">
+                    <rect key="frame" x="267" y="454" width="30" height="30"/>
+                    <state key="normal" title="0.9"/>
+                    <connections>
+                        <action selector="nine:" destination="-1" eventType="touchUpInside" id="f7q-R2-hyP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-C8-kal">
+                    <rect key="frame" x="133" y="454" width="53" height="33"/>
+                    <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="0.5"/>
+                    <connections>
+                        <action selector="half:" destination="-1" eventType="touchUpInside" id="hWb-bG-dXs"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSN-en-nv5">
-                    <rect key="frame" x="100" y="461" width="65" height="33"/>
+                    <rect key="frame" x="20" y="454" width="65" height="33"/>
                     <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="start"/>
                     <connections>
                         <action selector="startAnimation:" destination="-1" eventType="touchUpInside" id="ueB-Vm-yhK"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Omp-Vq-TMe">
-                    <rect key="frame" x="24" y="502" width="296" height="31"/>
-                    <connections>
-                        <action selector="sliderForAnimation:" destination="-1" eventType="valueChanged" id="bYM-6d-XvP"/>
-                    </connections>
-                </slider>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

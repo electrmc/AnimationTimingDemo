@@ -22,13 +22,27 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // t - active local time   图层的本地时间
+    // tp - parent layer time  父图层的时间
+    // 父图层和图层本地的时间换算公式
+    // t = (tp - beginTime) * speed + timeOffset
+    // beginTime = tp - (t - timeOffset)/speed
+    
     @IBAction func startAnimation(sender: AnyObject) {
         let changeColor: CABasicAnimation = CABasicAnimation(keyPath: "backgroundColor")
         changeColor.fromValue = UIColor.redColor().CGColor
         changeColor.toValue = UIColor.blackColor().CGColor
-        changeColor.duration = 1.0
+        changeColor.duration = 1.0 // For convenience when using timeOffset to control the animation
         self.myLayer?.speed = 0.0
         self.myLayer?.addAnimation(changeColor, forKey: "backgroundColor")
+    }
+    
+    @IBAction func nine(sender: AnyObject) {
+        self.myLayer?.timeOffset = 1.0
+    }
+    
+    @IBAction func half(sender: AnyObject) {
+        self.myLayer?.timeOffset = 0.5
     }
     
     @IBAction func sliderForAnimation(sender: AnyObject) {
