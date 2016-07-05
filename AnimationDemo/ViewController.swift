@@ -17,10 +17,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightGrayColor()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: DisplayLink
     @IBAction func startDisplayLink(){
@@ -54,16 +50,11 @@ class ViewController: UIViewController {
         animation.toValue = NSValue(CGPoint: toPoint)
         animation.duration = 5.0
 //        animation.speed = 2.0 // 相对速度为2
-        animation.timeOffset = 2.0 //从2秒开始运动，然后再完成前2秒的动画，且与速度无关
-        animation.beginTime = CACurrentMediaTime() + 0.5 // 延时0.5秒开始
+        animation.timeOffset = 0.0 //从2秒开始运动，然后再完成前2秒的动画，且与速度无关
+//        animation.beginTime = CACurrentMediaTime() - 5.0 // 延时0.5秒开始
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         self.animatorView.layer.addAnimation(animation, forKey: "KVCkey")
-//        self.animatorView.center = toPoint
-    }
-    
-    @IBAction func endAnimation(sender: AnyObject) {
-        print("end view : \(self.animatorView)")
-        print("end view.layer : \(self.animatorView.layer.frame)")
+//        self.animatorView.layer.speed = 0.0
     }
     
     // MARK: 这两个方法还不是协议，而是NSObject的扩展
@@ -80,7 +71,6 @@ class ViewController: UIViewController {
             let toValueTemp: NSValue = toValue as! NSValue
             var point = CGPoint(x: 0, y: 0)
             toValueTemp.getValue(&point)
-            //            var point = toValueTemp.CGPointValue()
             self.animatorView.center = point
         }
         
@@ -97,19 +87,29 @@ class ViewController: UIViewController {
         self.resumeLayer(self.animatorView.layer)
     }
     
+    @IBAction func changeBeginTime(sender: AnyObject) {
+        self.changeLayerBeginTime(self.animatorView.layer)
+    }
+    
     func pauseLayer(layer :CALayer){
         let pauseTime: CFTimeInterval = layer .convertTime(CACurrentMediaTime(), fromLayer: nil)
         layer.speed = 0.0
         layer.timeOffset = pauseTime
     }
-    //MARK: 这个调用多次会出现什么问题
+    
     func resumeLayer(layer :CALayer){
         let pauseTime = layer.timeOffset
         layer.speed = 1.0
         layer.timeOffset = 0.0
         layer.beginTime = 0.0
         let timeSincePause: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pauseTime
-        layer.beginTime = timeSincePause
+        layer.beginTime = timeSincePause + 2.0
+    }
+    
+    func changeLayerBeginTime(layer: CALayer) {
+        layer.speed = 0.0;
+        layer.beginTime += 1.0
+        layer.speed = 1.0
     }
     
     @IBAction func resetAnimationView(sender: AnyObject) {
