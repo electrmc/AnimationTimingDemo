@@ -49,10 +49,11 @@ class ViewController: UIViewController {
         animation.fromValue = NSValue(CGPoint: fromPoint)
         animation.toValue = NSValue(CGPoint: toPoint)
         animation.duration = 5.0
-//        animation.speed = 2.0 // 相对速度为2
-        animation.timeOffset = 0.0 //从2秒开始运动，然后再完成前2秒的动画，且与速度无关
-//        animation.beginTime = CACurrentMediaTime() - 5.0 // 延时0.5秒开始
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+
+//        animation.speed = 2.0 // 相对速度为2
+//        animation.timeOffset = 0.0 //从2秒开始运动，然后再完成前2秒的动画，且与速度无关
+//        animation.beginTime = CACurrentMediaTime() - 5.0 // 延时0.5秒开始
         self.animatorView.layer.addAnimation(animation, forKey: "KVCkey")
 //        self.animatorView.layer.speed = 0.0
     }
@@ -92,7 +93,7 @@ class ViewController: UIViewController {
     }
     
     func pauseLayer(layer :CALayer){
-        let pauseTime: CFTimeInterval = layer .convertTime(CACurrentMediaTime(), fromLayer: nil)
+        let pauseTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         layer.speed = 0.0
         layer.timeOffset = pauseTime
     }
@@ -106,14 +107,30 @@ class ViewController: UIViewController {
         layer.beginTime = timeSincePause + 2.0
     }
     
+    // t = (tp - beginTime) * speed + timeOffset
+    // 由上面的公式可以知：beginTime的取值范围一般是动画的duration区间，而不是真是的系统时间
     func changeLayerBeginTime(layer: CALayer) {
         layer.speed = 0.0;
         layer.beginTime += 1.0
         layer.speed = 1.0
     }
     
+    var time:CFTimeInterval = 0.0
+    @IBAction func sliderChangeAnimation(sender: AnyObject) {
+        let slider = sender as! UISlider
+        if time < 0.01 {
+            // time的取值时间是由speed决定的，当speed不为0时就与父layer的时间相同
+            time = self.animatorView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        }
+        self.animatorView.layer.speed = 0.0
+        self.animatorView.layer.timeOffset = Double(slider.value * 0.5) + time
+        print("self.animatorView.layer.timeOffset : \(self.animatorView.layer.timeOffset)")
+    }
+    
     @IBAction func resetAnimationView(sender: AnyObject) {
         self.animatorView.center = CGPointMake(10, 20)
+        self.animatorView.layer.speed = 1.0
+        time = 0.0
     }
 }
 
