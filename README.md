@@ -26,10 +26,10 @@ begintime的改变分为动画添加到layer前和添加到layer后，begintime�
 最后需要注意的是：</br>
 1. speed决定begintime的影响。当speed为0时，begintime无论怎么改变都不会影响loacl active time，此时loacl active time=timeoffset。因此，想要通过改变begintime对动画进行延时，快进，快退，speed必须要大于0。</br>
 2. begintime的取值应该小于动画的duration/speed。超过这个范围后，动画已经结束，这时改变不会再有影响。</br>
-##timeoffset
+## timeoffset
 相比begintime必须在speed大于0的情况下有作用，timeoffset一般会在speed等于0的情况下起作用。
 当speed等于0时，t = timeoffset。这时，只需要改变timeoffset就可以控制动画的进度。不过这里需要注意的是timeoffset的取值。X轴上t1 = t(add) + |t1-t(add)|</br>
 1. 当动画以speed=1.0的速度开始后。假设begintime = 0.0，X轴的原点：t(add) = tp。</br>
 2. 当动画开始时speed=0.0，那么X轴的原点t(add) = 0。</br>
-##总结
+## 总结
 begintime在speed>0时可以实现动画快退、快进以及延时开始的功能。timeoffset在speed=0.0时，可以实现手动控制动画的进程。
